@@ -26,6 +26,7 @@ CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
   --headless=new --disable-gpu --no-sandbox \
   --window-size="${WIDTH},${HEIGHT}" --hide-scrollbars \
   --force-device-scale-factor="$SCALE" \
+  --default-background-color=00000000 \
   --screenshot="$OUTPUT" \
   "file://$TMP" 2>/dev/null
 

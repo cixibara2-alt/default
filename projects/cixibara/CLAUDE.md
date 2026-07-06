@@ -18,3 +18,8 @@
 - 默认分辨率较高（`--force-device-scale-factor=3`），画面更清晰；窗口大小按内容需要调整（`render.sh` 第 3、4 个参数）。
 - `diagrams/circle-demo.html` / `triangle-demo.html` 是现成模板参考（配色、卡片布局、SVG 标注风格），
   新图可以照着这个结构改坐标和标签，不用从零设计。
+- **默认优先用 `diagrams/pure-template.html`**（纯净版：透明背景、无卡片、无标题、无配文，只有图形本身+必要的
+  点/线/坐标标注）——这是发给用户时最接近"直接内嵌"的效果，跟发一张贴纸图一样干净。只有明确需要标题/说明文字
+  时才用 `circle-demo.html` 那种带卡片的版本。
+- `render.sh` 已支持透明背景（`--default-background-color=00000000`），配合 pure 模板输出的 PNG 是真 RGBA 透明，
+  不是白底。
