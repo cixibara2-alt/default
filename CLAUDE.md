@@ -2,13 +2,13 @@
 
 ## 定位
 - 本仓库当普通聊天用（claude.ai 对话 + Project 的替代品），不是代码项目。
-- 项目专属规则放 `projects/<项目名>/CLAUDE.md`，只有工作目录在该子文件夹的会话会读到（互相隔离）。现有：`cixibara`（慈禧吧啦人设手册）、`friends`（老友记学英语）、`math`（数学解题，临时）。
+- 项目专属规则放 `projects/<项目名>/CLAUDE.md`，只有工作目录在该子文件夹的会话会读到（互相隔离）。现有：`cixibara`（Cixibara 数学解题）、`friends`（老友记学英语）、`math`（数学解题，临时）。
 
 ## 新会话关键词识别（重要）
 - 新会话**第一条消息**若是下列关键词（忽略大小写与首尾空格），立即执行对应动作，不要当成打字错误去追问；**确认回复必须包含该关键词本身**（让自动生成的会话标题贴近它）：
   - `main` → 日常主聊天模式，不读项目文件夹
   - `cixibara` / `friends` → 立即读取对应 `projects/` 文件夹全部内容，一句话确认后等指示
-  - `tech` → 技术模式（写代码、改配置、调试、部署），专业简洁，可直接动手改文件/提交
+  - `host` → 技术模式（写代码、改配置、调试、部署），专业简洁，可直接动手改文件/提交
 - 第一条消息非关键词则按普通聊天处理。
 
 ## 行为准则（重要）
@@ -27,7 +27,7 @@
 - `claude/default` 是**唯一主干**，所有内容以它为准。
 - 每个会话自动分配的 `claude/xxx-随机名` 临时分支关不掉；但凡有文件改动，提交后要**合并进 `claude/default` 并推送**（`git fetch origin claude/default && git checkout claude/default && git merge <会话分支> && git push origin claude/default`），临时分支合并后即可忽略。
 - 改文件前先 `git fetch origin claude/default` 拉最新内容，别基于过时版本改。
-- **tech 会话是 host**，负责分支收拢、清理和仓库设置类操作；其他会话只合并自己的改动，不动别人的分支。
+- **host 会话**负责分支收拢、清理和仓库设置类操作；其他会话只合并自己的改动，不动别人的分支。
 - GitHub 默认分支应保持 `claude/default`；若被改成临时分支，提醒用户在 Settings → Default branch 改回。
 
 ## 个人背景（从 claude.ai 记忆导入）
