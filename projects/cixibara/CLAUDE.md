@@ -20,4 +20,5 @@
 - **统一固定浅色背景**，已取消按新加坡时间自动切换深浅色的逻辑（`__THEME__` 恒为 light），减少变量、少出 bug。
 - 默认分辨率较高（`--force-device-scale-factor=3`~`5`），画面更清晰；窗口大小按内容需要调整（`render.sh` 第 3、4 个参数）。
 - **只用 `diagrams/pure-template.html`**（纯净版：无卡片、无标题、无配文，只有图形本身+必要的点/线/坐标标注）——图里绝对不放文字说明、数据小结（如 CO=3/4km 这类），这些一律写在聊天正文里。`circle-demo.html`/`triangle-demo.html` 那种带卡片+文字的版本已废弃，不要再用。
-- **重要教训（截图不全）**：`render.sh` 的 width/height 若比 HTML 实际内容小，headless chrome 只截可视区域，多出来的内容会被直接切掉（不是缩小，是消失）。所以调用 render.sh 时要把 width/height 给得足够大、宁可多留白，截完用 `diagrams/autocrop.py output.png output.png` 裁掉多余留白（按非透明像素包围盒裁），而不要反复猜测精确尺寸。
+- **重要教训（截图不全）**：`render.sh` 的 width/height 哪怕跟 HTML 内容"刚好"一样大，headless chrome 有时依然会截丢边缘内容（不是缩小，是直接消失，可能是窗口尺寸本身含了一点看不见的边距）。所以调用 render.sh 时 width/height 要给得比内容明显大（比如内容实际只需 300 宽，就开到 1000 宽），宁可多留白，截完用 `diagrams/autocrop.py output.png output.png` 裁掉多余留白（按非透明像素包围盒裁），而不要靠精确计算尺寸去省这一步。
+- 补充：Artifact（发布网页那种）是真实网页渲染，不是固定尺寸截图，天然不会有这种边缘裁切问题——但 Artifact 版本之前因为带了卡片和文字说明被否掉了（配图不放文字的规则见上），所以还是用 pure-template + render.sh + autocrop 这条链路，只是心里有数这个截图裁切的坑从哪来的。
