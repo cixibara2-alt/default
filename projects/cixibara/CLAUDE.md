@@ -17,20 +17,7 @@
 - `diagrams/render.sh` 是画几何配图的可复用脚本：写一份 HTML（用 `data-theme="__THEME__"` 占位），
   跑 `./render.sh input.html output.png` 就能截图成 PNG，直接用 SendUserFile 发给用户（iOS 上能正常内嵌显示，
   不用 Artifact 侧边栏）。
-- 主题自动判断：新加坡时间 18:00–06:00 用深色，06:00–18:00 用浅色（脚本内已实现，不用每次手动查时间）。
-- 默认分辨率较高（`--force-device-scale-factor=3`），画面更清晰；窗口大小按内容需要调整（`render.sh` 第 3、4 个参数）。
-- `diagrams/circle-demo.html` / `triangle-demo.html` 是现成模板参考（配色、卡片布局、SVG 标注风格），
-  新图可以照着这个结构改坐标和标签，不用从零设计。
-- 图里只画纯图形（点/线/坐标/标注），不嵌入文字说明、标题、数据小结（如 CO=3/4km 这类）——这些说明性文字直接写在聊天正文里，不放进图片。
-- **重要教训（截图不全）**：`render.sh` 的 width/height 若比 HTML 实际内容小，headless chrome 只截可视区域，多出来的内容会被直接切掉（不是缩小，是消失）。所以调用 render.sh 时宁可把 width/height 给大一点（留白没关系），截完用 `diagrams/autocrop.py output.png output.png` 裁掉多余留白（透明图按非透明像素包围盒裁，卡片图按四角背景色裁），而不要反复猜测精确尺寸。
-- **默认优先用 `diagrams/pure-template.html`**（纯净版：透明背景、无卡片、无标题、无配文，只有图形本身+必要的
-  点/线/坐标标注）——这是发给用户时最接近"直接内嵌"的效果，跟发一张贴纸图一样干净。只有明确需要标题/说明文字
-  时才用 `circle-demo.html` 那种带卡片的版本。
-- `render.sh` 已支持透明背景（`--default-background-color=00000000`），配合 pure 模板输出的 PNG 是真 RGBA 透明，
-  不是白底。
-- **重要教训**：透明背景的图会被放到未知背景上看（iOS 图片查看器默认白底，聊天气泡可能是深色），
-  之前按"新加坡时间深浅色"给文字/点配色导致在白底上文字看不清（浅灰字配白底）。
-  已修复：`pure-template.html` 里的文字和关键点**不再跟随 __THEME__**，改用固定的"深色填充 + 白色描边"
-  双色方案（`paint-order:stroke fill`），不管背景深浅都能看清；线条本身用饱和强调色（绿/橙），两种背景下
-  对比度都够。**新图延用这个方案，不要再让文字颜色跟着主题切换。**
-  （`__THEME__` 机制仍保留给 `circle-demo.html`/`triangle-demo.html` 那种带不透明卡片背景的版本用。）
+- **统一固定浅色背景**，已取消按新加坡时间自动切换深浅色的逻辑（`__THEME__` 恒为 light），减少变量、少出 bug。
+- 默认分辨率较高（`--force-device-scale-factor=3`~`5`），画面更清晰；窗口大小按内容需要调整（`render.sh` 第 3、4 个参数）。
+- **只用 `diagrams/pure-template.html`**（纯净版：无卡片、无标题、无配文，只有图形本身+必要的点/线/坐标标注）——图里绝对不放文字说明、数据小结（如 CO=3/4km 这类），这些一律写在聊天正文里。`circle-demo.html`/`triangle-demo.html` 那种带卡片+文字的版本已废弃，不要再用。
+- **重要教训（截图不全）**：`render.sh` 的 width/height 若比 HTML 实际内容小，headless chrome 只截可视区域，多出来的内容会被直接切掉（不是缩小，是消失）。所以调用 render.sh 时要把 width/height 给得足够大、宁可多留白，截完用 `diagrams/autocrop.py output.png output.png` 裁掉多余留白（按非透明像素包围盒裁），而不要反复猜测精确尺寸。
