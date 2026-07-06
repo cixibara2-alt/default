@@ -1,0 +1,85 @@
+<!doctype html>
+<html data-theme="__THEME__">
+<head>
+<meta charset="utf-8">
+<title>画个圆：内嵌几何图演示</title>
+<style>
+  :root{
+    --bg:#f7f5f1; --ink:#1f2420; --ink-soft:#5b6259; --line:#c9c2b4;
+    --accent:#2c5f4a; --accent-soft:#e4ece7; --paper:#ffffff;
+  }
+  :root[data-theme="__THEME__"]{
+    --bg:#15181a; --ink:#e9ece8; --ink-soft:#9aa39a; --line:#3a4038;
+    --accent:#7fd2ab; --accent-soft:#1e2d26; --paper:#1b1f1d;
+  }
+  :root[data-theme="light"]{
+    --bg:#f7f5f1; --ink:#1f2420; --ink-soft:#5b6259; --line:#c9c2b4;
+    --accent:#2c5f4a; --accent-soft:#e4ece7; --paper:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    padding:32px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:32px 40px 28px; max-width:420px; width:100%;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+  .eyebrow{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 4px; }
+  h1{ font-size:19px; font-weight:600; margin:0 0 20px; text-wrap:balance; }
+  .diagram-wrap{ display:flex; justify-content:center; margin-bottom:18px; }
+  svg{ overflow:visible; shape-rendering:geometricPrecision; }
+  .grid-line{ stroke:var(--line); stroke-width:1; }
+  .circle-outline{ fill:none; stroke:var(--accent); stroke-width:2.5; }
+  .radius-line{ stroke:var(--ink-soft); stroke-width:1.5; stroke-dasharray:4 3; }
+  .pt{ fill:var(--ink); }
+  .pt-accent{ fill:var(--accent); }
+  .label{ font-size:13px; fill:var(--ink); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .label-soft{ fill:var(--ink-soft); }
+  .facts{
+    display:grid; grid-template-columns:auto 1fr; gap:6px 12px;
+    font-size:13.5px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    background:var(--accent-soft); border-radius:10px; padding:14px 16px; color:var(--ink);
+  }
+  .facts dt{ color:var(--ink-soft); }
+  .facts dd{ margin:0; }
+  .caption{ font-size:12.5px; color:var(--ink-soft); margin:14px 0 0; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="eyebrow">内嵌图形 · 演示</p>
+  <h1>圆 O，半径 r，圆上一点 A</h1>
+
+  <div class="diagram-wrap">
+    <svg width="260" height="260" viewBox="0 0 260 260">
+      <line class="grid-line" x1="20" y1="130" x2="240" y2="130" />
+      <line class="grid-line" x1="130" y1="20" x2="130" y2="240" />
+      <circle class="circle-outline" cx="130" cy="130" r="90" />
+      <line class="radius-line" x1="130" y1="130" x2="193.6" y2="66.4" />
+      <circle class="pt" cx="130" cy="130" r="3.5" />
+      <text class="label" x="138" y="126">O</text>
+      <circle class="pt-accent" cx="193.6" cy="66.4" r="3.5" />
+      <text class="label" x="201" y="62">A</text>
+      <text class="label label-soft" x="150" y="93" transform="rotate(-45 150 93)">r</text>
+    </svg>
+  </div>
+
+  <dl class="facts">
+    <dt>圆心</dt><dd>O (130, 130)</dd>
+    <dt>半径</dt><dd>r = 90</dd>
+    <dt>点 A</dt><dd>圆上一点，OA = r</dd>
+  </dl>
+
+  <p class="caption">
+    这是解题时能内嵌给你的示意图效果——比如"补全图形"类题目里标出辅助线、
+    圆心、半径，都可以用这种方式直接画出来，跟着解题步骤一起看。
+  </p>
+</div>
+</body>
+</html>
