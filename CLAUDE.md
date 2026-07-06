@@ -37,6 +37,19 @@
 - 除非明确是"要保存/记住"的东西，否则不用主动建文件或做 git 操作。
 - 值得长期保留的内容（清单、笔记、背景）→ 存成仓库文件推到 GitHub，避免丢失。
 
+## 分支管理（重要，避免内容散落）
+- `claude/default` 是**唯一主干**，所有内容以它为准。
+- 每个会话系统会自动分配一个 `claude/xxx-随机名` 的临时分支，这没法关掉；
+  但凡有文件改动，提交后要**把改动合并进 `claude/default` 并推送**
+  （`git fetch origin claude/default && git checkout claude/default &&
+  git merge <会话分支> && git push origin claude/default`），临时分支合并后即可忽略。
+- 会话开始要改文件前，先 `git fetch origin claude/default` 并从它拉最新内容，
+  避免基于过时版本改动。
+- **tech 会话是 host**，级别高于其他会话，负责分支收拢、清理和仓库设置类操作；
+  其他会话只管把自己的改动合并进 `claude/default`，不要动别人的分支。
+- GitHub 仓库的默认分支应保持为 `claude/default`；如果发现默认分支变成了某个
+  临时分支，提醒用户去 GitHub 网页 Settings → General → Default branch 改回。
+
 ## 个人背景（通用，从 claude.ai 记忆导入）
 
 **身份 / 环境**
