@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8">
 <style>
-  :root{ --ink:#1f2420; --ink-soft:#5b6259; --accent:#2c5f4a; --accent2:#b5562f; }
-  :root[data-theme="dark"]{ --ink:#eef1ec; --ink-soft:#a7b0a6; --accent:#7fd2ab; --accent2:#e2986c; }
-  :root[data-theme="light"]{ --ink:#1f2420; --ink-soft:#5b6259; --accent:#2c5f4a; --accent2:#b5562f; }
+  /*
+    这个模板是透明背景，会被放到未知背景上看（白色查看器、深色聊天气泡都可能）。
+    所以文字和关键点故意不跟随 __THEME__ 变色，而是固定"深色描边 + 浅色轮廓"的
+    双色描边方案（text-halo 技巧），保证在浅色和深色背景上都能看清，不需要猜背景色。
+    线条本身用饱和的强调色（绿/橙），在浅色和深色背景上对比度都够，所以不用改。
+  */
+  :root{ --accent:#2c8a63; --accent2:#c05a2c; }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:transparent;}
   body{
@@ -15,13 +19,21 @@
     -webkit-font-smoothing:antialiased;
   }
   svg{ overflow:visible; shape-rendering:geometricPrecision; }
-  .line-main{ fill:none; stroke:var(--ink); stroke-width:2.5; }
-  .line-accent{ fill:none; stroke:var(--accent); stroke-width:2.5; }
-  .line-aux{ stroke:var(--accent2); stroke-width:2; stroke-dasharray:5 4; }
-  .pt{ fill:var(--ink); }
-  .pt-accent{ fill:var(--accent); }
-  .label{ font-size:15px; fill:var(--ink); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
-  .label-soft{ fill:var(--ink-soft); font-size:13px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .line-main{ fill:none; stroke:#333; stroke-width:2.5; paint-order:stroke; stroke-linecap:round; }
+  .line-accent{ fill:none; stroke:var(--accent); stroke-width:3; }
+  .line-aux{ stroke:var(--accent2); stroke-width:2.5; stroke-dasharray:5 4; }
+  .pt{ fill:#1f2420; stroke:#ffffff; stroke-width:2.5; }
+  .pt-accent{ fill:var(--accent); stroke:#ffffff; stroke-width:2; }
+  .label{
+    font-size:16px; font-weight:600; fill:#1f2420;
+    stroke:#ffffff; stroke-width:3.5px; paint-order:stroke fill;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  .label-soft{
+    font-size:14px; fill:#3d453f;
+    stroke:#ffffff; stroke-width:3px; paint-order:stroke fill;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
 </style>
 </head>
 <body>
