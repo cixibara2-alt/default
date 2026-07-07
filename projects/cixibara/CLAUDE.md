@@ -13,6 +13,7 @@
 ## 解题行为
 - 题目图文不符、条件存疑、或有多种合理解读时，列出分歧点交给用户判断，不自行猜测硬解。
 
-## 解题配图（已停用代码渲染）
-- **不再用 `render.sh` / 无头浏览器截图这套流程**——跑代码渲染太慢，拖累解题响应速度。
-- 该配图的题目照常主动配图，只是换渠道：直接用 **Artifact**（HTML/SVG）画，不跑截图脚本、不生成 PNG。
+## 解题配图
+- `diagrams/render.sh`：写 HTML（含 `data-theme="__THEME__"` 占位）→ `./render.sh input.html output.png` 截图 → SendUserFile 发送。固定浅色背景（不再按时间自动切换深浅）。
+- 只用 `diagrams/pure-template.html`（纯图形，无卡片/标题/文字说明）；带卡片文字的 `circle-demo.html`/`triangle-demo.html` 版本已废弃。数据/说明一律写聊天正文，不放图里。
+- **截图不全的坑**：`render.sh` 的 width/height 哪怕跟内容"刚好"一样大，headless chrome 也可能截丢边缘（不是缩小是直接消失）。要给得比内容明显大（如内容 300 宽就开 1000 宽），截完用 `diagrams/autocrop.py out.png out.png` 裁掉多余留白，别靠精确计算尺寸偷懒。Artifact 网页版天然没有这个问题（真实网页渲染，非固定尺寸截图），但因带文字卡片已被否，故仍用上述链路。
