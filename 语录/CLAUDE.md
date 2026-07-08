@@ -18,6 +18,5 @@
 
 ## 配图（GGB 文件，不再截图）
 - 需要几何配图时直接生成 **`.ggb` 文件**：手写 `geogebra.xml`（GeoGebra format 5.0，点/线/圆等对象与标签样式全 XML 描述）→ `zip` 打包成 `.ggb`（包内根为 `geogebra.xml`，缩略图可省）→ 交付。不跑无头浏览器截图，不生成 PNG。
-- **交付渠道（用户已确认）**：① 聊天里 SendUserFile 直接发（iOS 上点附件 → 分享 → GeoGebra 打开）；② 同时存一份到 Google Drive 的「GGB配图」文件夹留档（文件夹不存在就建）。
-- 第一次实际生成时请用户确认能在 GeoGebra 打开（尚未验证过样例）；打不开就报告并商量替代方案。
+- **交付渠道（已验证可用）**：默认聊天里 SendUserFile 直接发（iOS 上点附件 → 分享 → GeoGebra 打开，用户确认这个最方便）；用户要留档时再存一份到 Google Drive 的「GGB配图」文件夹（已建好）。
 - GGB 文件按需生成即用，不存进本仓库。
