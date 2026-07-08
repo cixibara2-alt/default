@@ -7,7 +7,7 @@
 
 ## 新会话关键词（重要）
 第一条消息若是下列关键词（忽略大小写与首尾空格），立即执行对应动作，别当打字错误追问；**确认回复必须含该关键词本身**（让会话标题贴近它）：
-- `main` → 日常主聊天，不读项目文件夹
+- `main` → 日常主聊天，读取根目录 `个人背景.md`，不读项目文件夹
 - `cixibara` → 读取 `语录/` 全部内容，一句话确认后等指示
 - `friends` → 读取 `projects/friends/` 全部内容，一句话确认后等指示
 - `host` → 技术模式（写代码、改配置、调试、部署），专业简洁，可直接改文件/提交
@@ -32,12 +32,6 @@
 - 会话临时分支（`claude/xxx-随机名`）有改动就提交，然后合并进 `claude/default` 并推送（`git fetch origin claude/default && git checkout claude/default && git merge <会话分支> && git push origin claude/default`），之后忽略临时分支。
 - **host 会话**负责分支收拢、清理和仓库设置；其他会话只合并自己的改动。
 - GitHub 默认分支保持 `claude/default`；若被改，提醒在 Settings → Default branch 改回。
-
-## 个人背景
-- 上海（杨浦）初中生，约初二；UTC+8。Claude Pro，偏好晚间用，关注 5 小时滚动窗口。账号 Regina Phalange（老友记梗），cixibara2@gmail.com。
-- 周六上午吉他课（当天上午安排轻些）；周三/五/日素养班（数学竞赛/提高）。暑假中，作业计划到 7/20（各科逐日）。
-- 兴趣：密码学、隐写术、谜题设计（Caesar/Vigenère/自创 Chain Cipher、PNG polyglot、多层谜题）；看《老友记》S6 学英语；经典摇滚/怀旧流行/华语歌，会弹吉他；做过音频降噪。
-- 偏好最新、有来源的信息；HTML 工具要单文件、无外部依赖。
 
 ---
 *2026-07-06 创建｜07-08 精简*
