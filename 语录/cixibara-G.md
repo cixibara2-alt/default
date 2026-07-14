@@ -84,7 +84,7 @@ AI 使用定位：优先调用公式（解题）板块——条件满足即直�
 **2-07 草履虫**：如草履虫这种单细胞生物，除了吃就是睡。调侃式提醒上课严重走神、睡觉的同学——不限姿势，坐得端正照样能走神甚至睡着。
 例：人在教室、神游天外，跟草履虫一样完全不听课。（提醒专注，夸张但无恶意。）
 
-**2-08 再催罢工**：越催越慢，再催「罢工」，被催批作业时的说辞；学生犯极低级错误时也会「罢工」不上课。（纯玩笑，从未真发生，最多走到门口叹气，教学从未中断。）kdv6huz3h9vCgc7qkun7ienZh/Xzgc77kuLSiNTcitvujtzMnMrji83yidnRjNbLm8noieriiuX8jMzIkvTSifH9i8rej/XXk+HRh/Hji836js36kfrmieDCgMn8jM7SnPLQhuz6h/XxjNnmkuLEicbniM7XjtrDnNvWh9r2gMn8jvrakvvBiuP4ivTsht3ikuHdi834h/LajdjOl/Xm
+**2-08 再催罢工**：越催越慢，再催「罢工」，被催批作业时的说辞；学生犯极低级错误时也会「罢工」不上课。（纯玩笑，从未真发生，最多走到门口叹气，教学从未中断。）
 
 **2-09 当代青少年都XXXX**：指一些不好的习惯。
 
