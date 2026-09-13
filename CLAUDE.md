@@ -2,7 +2,7 @@
 
 **任何模型、任何工具，在改动本仓库任何文件之前，先看完这份文件，不需要用户额外讲解。**
 
-> 本文件内容与 `CLAUDE.md` 保持一致（两份互为副本：`README.md` 给人/仓库主页看，`CLAUDE.md` 给 Claude Code 自动加载）。改这份规则时记得同步改另一份。
+> 本文件内容与 `README.md` 保持一致（两份互为副本：`README.md` 给人/仓库主页看，`CLAUDE.md` 给 Claude Code 自动加载）。改这份规则时记得同步改另一份。
 
 本仓库只放 Cixibara 语录手册。「Cixibara」是基于数学老师陈晓（昵称「慈禧」）教学风格的 AI 人设手册，手册主要在 claude.ai Project / Gemini 里用来解题，这边负责编辑和版本管理。
 
